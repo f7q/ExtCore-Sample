@@ -1,19 +1,19 @@
-﻿// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ExtCore.Infrastructure;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using WebApplication.ExtensionB.Models;
+using Swashbuckle.Swagger.Model;
 
-namespace WebApplication.ExtensionB
+
+namespace WebApplication.Swagger
 {
-    public class ExtensionB : IExtension
+    public class Swagger : IExtension
     {
         private IConfigurationRoot configurationRoot;
 
@@ -21,7 +21,7 @@ namespace WebApplication.ExtensionB
         {
             get
             {
-                return "Extension B";
+                return "Extension Swagger";
             }
         }
 
@@ -32,10 +32,10 @@ namespace WebApplication.ExtensionB
                 Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
 
                 routeRegistrarsByPriorities.Add(
-                    3000,
+                    9000,
                     routeBuilder =>
                     {
-                        routeBuilder.MapRoute(name: "Extension B", template: "extension-b", defaults: new { controller = "ExtensionB", action = "Index" });
+                        routeBuilder.MapRoute(name: "Extension Swagger", template: "{controller=Home}/{action=Index}/{id?}");
                     }
                 );
 
@@ -43,19 +43,18 @@ namespace WebApplication.ExtensionB
             }
         }
 
-
         public int ConfigureServicesPriorities
         {
             get
             {
-                return 2000;
+                return 300;
             }
         }
         public int ConfigurePriorities
         {
             get
             {
-                return 2000;
+                return 9000;
             }
         }
         public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
@@ -63,18 +62,29 @@ namespace WebApplication.ExtensionB
             this.configurationRoot = configurationRoot;
         }
 
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFrameworkSqlite();
-            services.AddDbContext<ItemDbContext>(options =>
+            //var pathToDoc = this.configurationRoot["Swagger:Path"];
+            services.AddSwaggerGen();
+            services.ConfigureSwaggerGen(options =>
             {
-                options.UseSqlite(this.configurationRoot["Data:DefaultConnection:ConnectionString"]);
+                options.SingleApiVersion(new Info
+                {
+                    Version = "v1",
+                    Title = "Geo Search API",
+                    Description = "A simple api to search using geo location in Elasticsearch",
+                    TermsOfService = "None"
+                });
+                //options.IncludeXmlComments(pathToDoc);
+                options.DescribeAllEnumsAsStrings();
             });
-            services.AddScoped<IItemRepository, ItemRepository>();
         }
 
         public void Configure(IApplicationBuilder applicationBuilder)
         {
+            applicationBuilder.UseSwagger();
+            applicationBuilder.UseSwaggerUi();
         }
     }
 }

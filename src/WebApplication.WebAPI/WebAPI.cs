@@ -1,19 +1,18 @@
-﻿// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using ExtCore.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using WebApplication.ExtensionB.Models;
+using WebApplication.WebAPI.Models;
 
-namespace WebApplication.ExtensionB
+namespace WebApplication.WebAPI
 {
-    public class ExtensionB : IExtension
+    public class WebAPI : IExtension
     {
         private IConfigurationRoot configurationRoot;
 
@@ -21,7 +20,7 @@ namespace WebApplication.ExtensionB
         {
             get
             {
-                return "Extension B";
+                return "Extension WebAPI";
             }
         }
 
@@ -32,10 +31,10 @@ namespace WebApplication.ExtensionB
                 Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
 
                 routeRegistrarsByPriorities.Add(
-                    3000,
+                    2000,
                     routeBuilder =>
                     {
-                        routeBuilder.MapRoute(name: "Extension B", template: "extension-b", defaults: new { controller = "ExtensionB", action = "Index" });
+                        routeBuilder.MapRoute(name: "Extension WebAPI", template: "{controller=Home}/{action=Index}/{id?}");
                     }
                 );
 
@@ -48,14 +47,14 @@ namespace WebApplication.ExtensionB
         {
             get
             {
-                return 2000;
+                return 2001;
             }
         }
         public int ConfigurePriorities
         {
             get
             {
-                return 2000;
+                return 2001;
             }
         }
         public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
