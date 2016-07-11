@@ -3,19 +3,19 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using WebApplication.ExtensionB.Models;
+using WebApplication.ExtensionB.Data.Models;
 using WebApplication.ExtensionB.ViewModels.Shared;
 
 namespace WebApplication.ExtensionB.ViewModels.ExtenstionB
 {
-    public class IndexViewModelBuilder
+  public class IndexViewModelBuilder
+  {
+    public IndexViewModel Build(IEnumerable<Item> items)
     {
-        public IndexViewModel Build(IEnumerable<Item> items)
-        {
-            return new IndexViewModel()
-            {
-                Items = items.Select(i => new ItemViewModelBuilder().Build(i))
-            };
-        }
+      return new IndexViewModel()
+      {
+        Items = items.Select(i => new ItemViewModelBuilder().Build(i))
+      };
     }
+  }
 }

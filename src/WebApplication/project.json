@@ -7,8 +7,10 @@
     "preserveCompilationContext": true
   },
   "dependencies": {
-    "ExtCore.Infrastructure": "1.0.0-alpha901",
-    "ExtCore.WebApplication": "1.0.0-alpha901",
+    "ExtCore.Data": "1.0.0-alpha9",
+    "ExtCore.Data.EntityFramework.Sqlite": "1.0.0-alpha9",
+    "ExtCore.Infrastructure": "1.0.0-alpha9",
+    "ExtCore.WebApplication": "1.0.0-alpha9",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
@@ -18,18 +20,7 @@
       "version": "1.0.0",
       "type": "platform"
     },
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-    "Microsoft.Extensions.Logging": "1.0.0",
-    "Microsoft.Extensions.Logging.Console": "1.0.0",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0",
-    "NLog.Extensions.Logging": "1.0.0-rtm-alpha2",
-    "NLog.Web.AspNetCore": "4.2.4",
-    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
-    "NETStandard.Library": "1.6.0",
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
-    "Microsoft.AspNetCore.Diagnostics.Elm": "0.1.0",
-    "Swashbuckle": "6.0.0-beta901",
-    "Swashbuckle.Swagger": "6.0.0-beta901"
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
   },
   "frameworks": {
     "netcoreapp1.0": {
@@ -45,8 +36,7 @@
       "Views",
       "wwwroot",
       "config.json",
-      "web.config",
-      "nlog.config"
+      "web.config"
     ]
   },
   "runtimeOptions": {

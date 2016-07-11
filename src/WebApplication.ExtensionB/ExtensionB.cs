@@ -8,73 +8,50 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using WebApplication.ExtensionB.Models;
 
 namespace WebApplication.ExtensionB
 {
-    public class ExtensionB : IExtension
+  public class ExtensionB : IExtension
+  {
+    private IConfigurationRoot configurationRoot;
+
+    public string Name
     {
-        private IConfigurationRoot configurationRoot;
-
-        public string Name
-        {
-            get
-            {
-                return "Extension B";
-            }
-        }
-
-        public IDictionary<int, Action<IRouteBuilder>> RouteRegistrarsByPriorities
-        {
-            get
-            {
-                Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
-
-                routeRegistrarsByPriorities.Add(
-                    3000,
-                    routeBuilder =>
-                    {
-                        routeBuilder.MapRoute(name: "Extension B", template: "extension-b", defaults: new { controller = "ExtensionB", action = "Index" });
-                    }
-                );
-
-                return routeRegistrarsByPriorities;
-            }
-        }
-
-
-        public int ConfigureServicesPriorities
-        {
-            get
-            {
-                return 2000;
-            }
-        }
-        public int ConfigurePriorities
-        {
-            get
-            {
-                return 2000;
-            }
-        }
-        public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
-        {
-            this.configurationRoot = configurationRoot;
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddEntityFrameworkSqlite();
-            services.AddDbContext<ItemDbContext>(options =>
-            {
-                options.UseSqlite(this.configurationRoot["Data:DefaultConnection:ConnectionString"]);
-            });
-            services.AddScoped<IItemRepository, ItemRepository>();
-        }
-
-        public void Configure(IApplicationBuilder applicationBuilder)
-        {
-        }
+      get
+      {
+        return "Extension B";
+      }
     }
+
+    public IDictionary<int, Action<IRouteBuilder>> RouteRegistrarsByPriorities
+    {
+      get
+      {
+        Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
+
+        routeRegistrarsByPriorities.Add(
+          2000,
+          routeBuilder =>
+          {
+            routeBuilder.MapRoute(name: "Extension B", template: "extension-b", defaults: new { controller = "ExtensionB", action = "Index" });
+          }
+        );
+
+        return routeRegistrarsByPriorities;
+      }
+    }
+
+    public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
+    {
+      this.configurationRoot = configurationRoot;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+    }
+
+    public void Configure(IApplicationBuilder applicationBuilder)
+    {
+    }
+  }
 }

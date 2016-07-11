@@ -5,5 +5,3 @@ obj/
 src/WebApplication/node_modules/
 *.xproj.user
 *.lock.json
-*.dll
-*.log

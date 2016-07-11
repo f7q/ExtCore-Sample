@@ -11,61 +11,47 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WebApplication.ExtensionA
 {
-    public class ExtensionA : IExtension
+  public class ExtensionA : IExtension
+  {
+    private IConfigurationRoot configurationRoot;
+
+    public string Name
     {
-        private IConfigurationRoot configurationRoot;
-
-        public string Name
-        {
-              get
-              {
-                    return "Extension A";
-              }
-        }
-
-        public IDictionary<int, Action<IRouteBuilder>> RouteRegistrarsByPriorities
-        {
-              get
-              {
-                    Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
-
-                    routeRegistrarsByPriorities.Add(
-                          2500,
-                          routeBuilder =>
-                          {
-                                routeBuilder.MapRoute(name: "Extension A", template: "", defaults: new { controller = "ExtensionA", action = "Index" });
-                          }
-                    );
-
-                    return routeRegistrarsByPriorities;
-              }
-        }
-
-        public int ConfigureServicesPriorities
-        {
-            get
-            {
-                return 1000;
-            }
-        }
-        public int ConfigurePriorities
-        {
-            get
-            {
-                return 1000;
-            }
-        }
-        public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
-        {
-            this.configurationRoot = configurationRoot;
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
-
-        public void Configure(IApplicationBuilder applicationBuilder)
-        {
-        }
+      get
+      {
+        return "Extension A";
+      }
     }
+
+    public IDictionary<int, Action<IRouteBuilder>> RouteRegistrarsByPriorities
+    {
+      get
+      {
+        Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
+
+        routeRegistrarsByPriorities.Add(
+          1000,
+          routeBuilder =>
+          {
+            routeBuilder.MapRoute(name: "Extension A", template: "", defaults: new { controller = "ExtensionA", action = "Index" });
+          }
+        );
+
+        return routeRegistrarsByPriorities;
+      }
+    }
+
+    public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
+    {
+      this.configurationRoot = configurationRoot;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+    }
+
+    public void Configure(IApplicationBuilder applicationBuilder)
+    {
+    }
+  }
 }
