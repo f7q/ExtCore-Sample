@@ -28,8 +28,8 @@
     "NETStandard.Library": "1.6.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.Elm": "0.1.0",
-    "Swashbuckle": "6.0.0-beta901",
-    "Swashbuckle.Swagger": "6.0.0-beta901"
+    "Swashbuckle": "6.0.0-beta902",
+    "Swashbuckle.Swagger": "6.0.0-beta902"
   },
   "frameworks": {
     "netcoreapp1.0": {
