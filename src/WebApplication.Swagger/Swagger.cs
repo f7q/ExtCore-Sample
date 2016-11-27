@@ -78,6 +78,7 @@ namespace WebApplication.Swagger
                 });
                 //options.IncludeXmlComments(pathToDoc);
                 options.DescribeAllEnumsAsStrings();
+                options.CustomSchemaIds(otions => options.GetType().FullName);
             });
         }
 
