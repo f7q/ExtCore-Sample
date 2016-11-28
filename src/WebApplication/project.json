@@ -25,14 +25,17 @@
     "NLog.Extensions.Logging": "1.0.0-rtm-alpha2",
     "NLog.Web.AspNetCore": "4.2.4",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
-    "NETStandard.Library": "1.6.0",
+    //"NETStandard.Library": "1.6.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.Elm": "0.1.0",
     "Swashbuckle": "6.0.0-beta902",
-    "Swashbuckle.Swagger": "6.0.0-beta902"
+    "Swashbuckle.Swagger": "6.0.0-beta902",
+    "Microsoft.CodeAnalysis.CSharp.Scripting": "1.3.2"
   },
   "frameworks": {
+    //"net46": {},
     "netcoreapp1.0": {
+    //"netstandard1.6": {
       "imports": [
         "dotnet5.6",
         "dnxcore50",

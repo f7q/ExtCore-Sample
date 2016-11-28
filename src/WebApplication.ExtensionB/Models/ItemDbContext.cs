@@ -10,7 +10,7 @@ namespace WebApplication.ExtensionB.Models
         public ItemDbContext(DbContextOptions<ItemDbContext> options) :base(options)
         { }
         public DbSet<Item> Items { get; set; }
-        public void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Item>().HasKey(m => m.Id);
             base.OnModelCreating(builder);
