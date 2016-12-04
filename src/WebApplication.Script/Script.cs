@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.CodeAnalysis.CSharp;
 using ExtCore.Infrastructure;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+//using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.Swagger.Model;
 
-
-namespace WebApplication.Swagger
+namespace WebApplication.Script
 {
-    public class Swagger : IExtension
+    public class Script : IExtension
     {
         private IConfigurationRoot configurationRoot;
 
@@ -21,7 +21,7 @@ namespace WebApplication.Swagger
         {
             get
             {
-                return "Extension Swagger";
+                return "Extension Script";
             }
         }
 
@@ -32,10 +32,10 @@ namespace WebApplication.Swagger
                 Dictionary<int, Action<IRouteBuilder>> routeRegistrarsByPriorities = new Dictionary<int, Action<IRouteBuilder>>();
 
                 routeRegistrarsByPriorities.Add(
-                    9000,
+                    2000,
                     routeBuilder =>
                     {
-                        routeBuilder.MapRoute(name: "Extension Swagger", template: "{controller=Home}/{action=Index}/{id?}");
+                        routeBuilder.MapRoute(name: "Extension Script", template: "{controller=Home}/{action=Index}/{id?}");
                     }
                 );
 
@@ -47,14 +47,14 @@ namespace WebApplication.Swagger
         {
             get
             {
-                return 300;
+                return 2000;
             }
         }
         public int ConfigurePriorities
         {
             get
             {
-                return 9000;
+                return 2002;
             }
         }
         public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
@@ -65,28 +65,10 @@ namespace WebApplication.Swagger
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //var pathToDoc = this.configurationRoot["Swagger:Path"];
-            services.AddSwaggerGen();
-            services.ConfigureSwaggerGen(options =>
-            {
-                options.SingleApiVersion(new Info
-                {
-                    Version = "v1",
-                    Title = "Geo Search API",
-                    Description = "A simple api to search using geo location in Elasticsearch",
-                    TermsOfService = "None"
-                });
-                //options.IncludeXmlComments(pathToDoc);
-                options.DescribeAllEnumsAsStrings();
-                options.CustomSchemaIds(otions => options.GetType().FullName);
-                options.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
-            });
         }
 
         public void Configure(IApplicationBuilder applicationBuilder)
         {
-            applicationBuilder.UseSwagger();
-            applicationBuilder.UseSwaggerUi();
         }
     }
 }
