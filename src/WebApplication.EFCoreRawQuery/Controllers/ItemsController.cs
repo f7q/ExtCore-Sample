@@ -6,7 +6,7 @@ using WebApplication.EFCoreRawQuery.Models;
 
 namespace WebApplication.EFCoreRawQuery.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/sql/[controller]")]
     public class ItemsController : Controller
     {
         private IItemRepository _itemRepository { get; set; }

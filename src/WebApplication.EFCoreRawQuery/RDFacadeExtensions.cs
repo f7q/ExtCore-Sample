@@ -1,10 +1,8 @@
-﻿//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
-//using SirenTek.Areas.TechDemo.Areas.SirenTransferTests.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

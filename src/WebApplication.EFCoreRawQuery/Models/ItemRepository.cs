@@ -19,21 +19,11 @@ namespace WebApplication.EFCoreRawQuery.Models
         {
             var sql = @"
 SELECT Id, Name
-FROM Item 
-WHERE 
-Name IN ('Electro', 'Nitro')
+FROM Items 
 ";
-            // Execute a query.
-            //var dr = await _itemDbContext.Database.ExecuteSqlQueryAsync(sql);
-            var dr = _itemDbContext.Database.ExecuteSqlQuery(sql);
-            var result = dr.DbDataReader.GetEnumerator();
-            // Output rows.
-            while (dr.DbDataReader.Read())
-                System.Console.Write("{0}\t{1}} \n", dr[0], dr[1]);
+            var result = _itemDbContext.Database.GetModelFromQuery<Item>(sql);
 
-            // Don't forget to dispose the DataReader! 
-            dr.Dispose();
-            return result.;
+            return result;
         }
         public Item Find(long id)
         {
