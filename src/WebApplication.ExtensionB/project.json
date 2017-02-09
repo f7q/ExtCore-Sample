@@ -2,10 +2,10 @@
   "authors": [ "Dmitry Sikorsky" ],
   "buildOptions": { "embed": [ "Views/**" ] },
   "dependencies": {
-    "ExtCore.Infrastructure": "1.0.0-alpha901",
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "ExtCore.Infrastructure": "1.0.1-alpha901",
+    "Microsoft.AspNetCore.Mvc": "1.0.1",
     "NETStandard.Library": "1.6.0",
-    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0"
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1"
   },
   "frameworks": {
     "netstandard1.6": {

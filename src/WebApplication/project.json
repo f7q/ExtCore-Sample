@@ -7,12 +7,12 @@
     "preserveCompilationContext": true
   },
   "dependencies": {
-    "ExtCore.Infrastructure": "1.0.0-alpha901",
-    "ExtCore.WebApplication": "1.0.0-alpha901",
+    "ExtCore.Infrastructure": "1.0.1-alpha901",
+    "ExtCore.WebApplication": "1.0.1-alpha901",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Microsoft.NETCore.App": {
       "version": "1.0.0",
@@ -24,9 +24,9 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "NLog.Extensions.Logging": "1.0.0-rtm-alpha2",
     "NLog.Web.AspNetCore": "4.2.4",
-    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     //"NETStandard.Library": "1.6.0",
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.Diagnostics.Elm": "0.1.0",
     "Swashbuckle": "6.0.0-beta902",
     "Swashbuckle.Swagger": "6.0.0-beta902",

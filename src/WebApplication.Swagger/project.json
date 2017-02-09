@@ -2,9 +2,9 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "ExtCore.Infrastructure": "1.0.0-alpha901",
+    "ExtCore.Infrastructure": "1.0.1-alpha901",
     "NETStandard.Library": "1.6.0",
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Swashbuckle": "6.0.0-beta902",
     "Swashbuckle.Swagger": "6.0.0-beta902"
   },
