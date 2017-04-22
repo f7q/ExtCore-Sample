@@ -7,3 +7,6 @@ src/WebApplication/node_modules/
 *.lock.json
 *.dll
 *.log
+tools/
+packages/
+artifacts/

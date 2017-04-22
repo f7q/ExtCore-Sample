@@ -2,6 +2,7 @@
 
 gulp.task(
   "copy-extensions", function (cb) {
+    gulp.src(["../WebApplication.EFCoreRawQuery/bin/Debug/netstandard1.6/WebApplication.EFCoreRawQuery.dll"]).pipe(gulp.dest("Extensions"));
     gulp.src(["../WebApplication.NLog/bin/Debug/netstandard1.6/WebApplication.NLog.dll"]).pipe(gulp.dest("Extensions"));
     gulp.src(["../WebApplication.Elm/bin/Debug/netstandard1.6/WebApplication.Elm.dll"]).pipe(gulp.dest("Extensions"));
     gulp.src(["../WebApplication.ExtensionA/bin/Debug/netstandard1.6/WebApplication.ExtensionA.dll"]).pipe(gulp.dest("Extensions"));
