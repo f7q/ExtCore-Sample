@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.2" />
     <PackageReference Include="ExtCore.Infrastructure" Version="1.0.1-alpha901" />
     <PackageReference Include="ExtCore.WebApplication" Version="1.0.1-alpha901" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.0.2" />

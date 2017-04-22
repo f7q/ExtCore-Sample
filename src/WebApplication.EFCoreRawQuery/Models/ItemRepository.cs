@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Dapper;
 
 namespace WebApplication.EFCoreRawQuery.Models
 {
@@ -21,13 +22,25 @@ namespace WebApplication.EFCoreRawQuery.Models
 SELECT Id, Name
 FROM Items 
 ";
-            var result = _itemDbContext.Database.GetModelFromQuery<Item>(sql);
+            var connection = _itemDbContext.Database.GetDbConnection();
+            var result = connection.Query<Item>(sql);
 
             return result;
         }
         public Item Find(long id)
         {
-            return _itemDbContext.Items.Where(i => i.Id == id).First();
+            var sql = $@"
+SELECT Id, Name
+FROM Items 
+WHERE
+  1 = 1
+LIMIT 1 
+OFFSET {id} -- true
+";
+            var connection = _itemDbContext.Database.GetDbConnection();
+            var result = connection.Query<Item>(sql);
+
+            return result.First<Item>();
         }
         public void Add(Item value)
         {
