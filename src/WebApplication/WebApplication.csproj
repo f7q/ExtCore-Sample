@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyCore.App" Version="1.0.0-alpha1" />
+    <PackageReference Include="MyStandard.Library" Version="1.0.0-alpha1" />
   </ItemGroup>
 
 </Project>

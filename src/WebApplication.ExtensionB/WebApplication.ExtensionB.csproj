@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Authors>Dmitry Sikorsky</Authors>
+    <Authors>f7q</Authors>
     <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>WebApplication.ExtensionB</AssemblyName>
     <PackageId>WebApplication.ExtensionB</PackageId>
@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Views\**" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="Views\**" Exclude="bin\**;obj\**;**\*.csproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
 
   <ItemGroup>
