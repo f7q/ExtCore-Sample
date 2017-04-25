@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>DomainModel.Extentions</AssemblyName>
+    <PackageId>DomainModel.Extentions</PackageId>
+    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>DomainModel.Extentions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Controllers\DomainModel.Controllers.csproj" />
+    <ProjectReference Include="..\Infrastracture.Repository\DomainModel.Infrastracture.Repositorys.csproj" />
+    <ProjectReference Include="..\Infrastracture.Service\DomainModel.Infrastracture.Services.csproj" />
+    <ProjectReference Include="..\Models\DomainModel.Models.csproj" />
+    <ProjectReference Include="..\Repository\DomainModel.Repositorys.csproj" />
+    <ProjectReference Include="..\Services\DomainModel.Services.csproj" />
+  </ItemGroup>
+
+</Project>

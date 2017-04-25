@@ -6,6 +6,7 @@ src/WebApplication/node_modules/
 *.xproj.user
 *.lock.json
 *.dll
+*.pdb
 *.log
 tools/
 packages/
