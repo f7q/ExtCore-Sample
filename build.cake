@@ -13,6 +13,7 @@ var packPath6            = Directory("./src/WebApplication.NLog");
 var packPath7            = Directory("./src/WebApplication.Script");
 var packPath8            = Directory("./src/WebApplication.Swagger");
 var packPath9            = Directory("./src/WebApplication.WebAPI");
+var packPath10           = Directory("./src/DomainModel/Extentions");
 var buildArtifacts       = Directory("./artifacts/packages");
 
 var isAppVeyor          = AppVeyor.IsRunningOnAppVeyor;
@@ -88,6 +89,7 @@ Task("Build")
     DotNetCoreBuild(packPath7, settings);
     DotNetCoreBuild(packPath8, settings);
     DotNetCoreBuild(packPath9, settings);
+    DotNetCoreBuild(packPath10, settings);
     //settings.Framework = netcore;
     DotNetCoreBuild(packPath1, settings);
 
@@ -169,6 +171,7 @@ Task("Pack")
     DotNetCorePack(packPath7, settings);
     DotNetCorePack(packPath8, settings);
     DotNetCorePack(packPath9, settings);
+    DotNetCorePack(packPath10, settings);
     //settings.Framework = netcore;
     DotNetCorePack(packPath1, settings);
 });
