@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Controllers\DomainModel.Controllers.csproj" />
+    <ProjectReference Include="..\DomainModel.Daos\DomainModel.Daos.csproj" />
+    <ProjectReference Include="..\DomainModel.Infrastracture.Daos\DomainModel.Infrastracture.Daos.csproj" />
     <ProjectReference Include="..\Infrastracture.Repository\DomainModel.Infrastracture.Repositorys.csproj" />
     <ProjectReference Include="..\Infrastracture.Service\DomainModel.Infrastracture.Services.csproj" />
     <ProjectReference Include="..\Models\DomainModel.Models.csproj" />

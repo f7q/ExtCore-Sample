@@ -8,17 +8,18 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using DomainModel.Infrastracture.Repositorys;
-using DomainModel.Infrastracture.Services;
-using DomainModel.Infrastracture.Daos;
-using DomainModel.Repositorys;
-using DomainModel.Services;
-using DomainModel.Models;
-using DomainModel.Controllers;
-//using DomainModel.Daos;
+using Package.Infrastracture.Repositorys;
+using Package.Infrastracture.Services;
+using PackageCustum.Repositorys;
+using PackageCustum.Services;
+using PackageCustum.Models;
 
-namespace DomainModel.Extentions
+
+namespace PackageCusutm.Extentions
 {
+    /// <summary>
+    /// 実装しない。 カスタマイズ版で提供
+    /// </summary>
     public class Extention : IExtension
     {
         private IConfigurationRoot configurationRoot;
@@ -27,7 +28,7 @@ namespace DomainModel.Extentions
         {
             get
             {
-                return "Extension DomainModel";
+                return "Extension PackageCusutm";
             }
         }
 
@@ -41,15 +42,14 @@ namespace DomainModel.Extentions
                     2000,
                     routeBuilder =>
                     {
-                        routeBuilder.MapRoute(name: "Extension DomainModel", template: "{controller=Home}/{action=Index}/{id?}");
+                        routeBuilder.MapRoute(name: "Extension PackageCusutm", template: "{controller=Home}/{action=Index}/{id?}");
                     }
                 );
 
                 return routeRegistrarsByPriorities;
             }
         }
-
-
+        
         public int ConfigureServicesPriorities
         {
             get
@@ -72,13 +72,12 @@ namespace DomainModel.Extentions
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEntityFrameworkSqlite();
-            services.AddDbContext<ItemDbContext>(options =>
+            services.AddDbContext<Item2DbContext>(options =>
             {
                 options.UseSqlite(this.configurationRoot["Data:DefaultConnection:ConnectionString"]);
             });
-            services.AddScoped<IService<Item>, ItemService>();
-            services.AddScoped<IRepository<Item>, ItemRepository>();
-            //services.AddScoped<IDao<Item>, WorkDao>();
+            services.AddScoped<IService<Item>, ItemCustumService>();
+            services.AddScoped<IRepository<Item>, ItemCustumRepository>();
         }
 
         public void Configure(IApplicationBuilder applicationBuilder)

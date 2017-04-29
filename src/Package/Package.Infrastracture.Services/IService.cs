@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DomainModel.Infrastracture.Repositorys
+namespace Package.Infrastracture.Services
 {
-    public interface IRepository<T> : IInRepositorys<T>, IOutRepositorys<T>
+    public interface IService<T> : IInService<T>, IOutService<T>
     {
         new IEnumerable<T> All();
         new T Find(long id);

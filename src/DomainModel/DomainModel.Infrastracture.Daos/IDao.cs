@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DomainModel.Infrastracture.Repositorys
+namespace DomainModel.Infrastracture.Daos
 {
-    public interface IRepository<T> : IInRepositorys<T>, IOutRepositorys<T>
+    public interface IDao<T> : IInDaos<T>, IOutDaos<T>
     {
         new IEnumerable<T> All();
         new T Find(long id);

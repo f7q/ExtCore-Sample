@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using DomainModel.Models;
+﻿using System.Collections.Generic;
 
 namespace DomainModel.Infrastracture.Services
 {

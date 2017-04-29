@@ -2,14 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyName>DomainModel.Infrastracture.Repositorys</AssemblyName>
-    <PackageId>DomainModel.Infrastracture.Repositorys</PackageId>
+    <AssemblyName>Package.Repositorys</AssemblyName>
+    <PackageId>Package.Repositorys</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RootNamespace>DomainModel.Infrastracture.Repositorys</RootNamespace>
+    <RootNamespace>Package.Repositorys</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Package.Infrastracture.Repositorys\Package.Infrastracture.Repositorys.csproj" />
+    <ProjectReference Include="..\Package.Models\Package.Models.csproj" />
+  </ItemGroup>
 
 </Project>
