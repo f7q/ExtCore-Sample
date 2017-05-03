@@ -31,9 +31,10 @@ gulp.task(
 gulp.task(
     "copy-extensions-domainmodel", function (cb) {
         gulp.src(["../WebApplication.ExtensionA/bin/Release/netstandard1.6/WebApplication.ExtensionA.dll"]).pipe(gulp.dest("Extensions"));
-        gulp.src(["../DomainModel/Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
-        gulp.src(["../Package/Package.Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
-        gulp.src(["../PackageCustum/PackageCusum.Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
+//        gulp.src(["../DomainModel/Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
+//        gulp.src(["../Package/Package.Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
+//        gulp.src(["../PackageCustum/PackageCusum.Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
+        gulp.src(["../PackageDefaultCustom/PackageDefaultCustom.Extentions/bin/Debug/netstandard1.6/*"]).pipe(gulp.dest("Extensions"));
         gulp.src(["../WebApplication.Swagger/bin/Debug/netstandard1.6/WebApplication.Swagger.dll"]).pipe(gulp.dest("Extensions"));
         cb();
     }

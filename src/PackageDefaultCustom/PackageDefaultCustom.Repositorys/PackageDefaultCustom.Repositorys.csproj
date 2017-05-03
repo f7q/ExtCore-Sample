@@ -2,20 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyName>Package.Controllers</AssemblyName>
-    <PackageId>Package.Controllers</PackageId>
+    <AssemblyName>PackageDefaultCustom.Repositorys</AssemblyName>
+    <PackageId>PackageDefaultCustom.Repositorys</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RootNamespace>Package.Controllers</RootNamespace>
+    <RootNamespace>PackageDefaultCustom.Repositorys</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Package.Infrastracture.Controllers\Package.Infrastracture.Controllers.csproj" />
-    <ProjectReference Include="..\Package.Infrastracture.Services\Package.Infrastracture.Services.csproj" />
-    <ProjectReference Include="..\Package.Models\Package.Models.csproj" />
+    <ProjectReference Include="..\..\Package\Package.Models\Package.Models.csproj" />
+    <ProjectReference Include="..\..\Package\Package.Repositorys\Package.Repositorys.csproj" />
+    <ProjectReference Include="..\..\Package\Package.Infrastracture.Repositorys\Package.Infrastracture.Repositorys.csproj" />
   </ItemGroup>
 
 </Project>
