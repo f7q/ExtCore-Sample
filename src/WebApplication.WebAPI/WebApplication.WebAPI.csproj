@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="MyStandard.Library" Version="1.0.0-alpha1" />
+    <PackageReference Include="Autofac" Version="4.6.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
   </ItemGroup>
 
 </Project>

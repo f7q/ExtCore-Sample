@@ -5,6 +5,7 @@
     }
   },
   "Extensions": {
-    "Path": "\\Extensions"
+    "Path": "\\Extensions",
+    "Commons": "\\Commons"
   }
 }
