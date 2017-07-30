@@ -6,14 +6,17 @@ using DomainModel.Models;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 using System.Dynamic;
+using Microsoft.Extensions.Logging;
 
 namespace DomainModel.Daos
 {
     public class WorkDao : IDao<Item>
     {
+        private readonly ILogger logger;
         private ItemDbContext _itemDbContext { get; set; }
-        public WorkDao(ItemDbContext itemDbContext)
+        public WorkDao(ItemDbContext itemDbContext, ILogger<WorkDao> logger)
         {
+            this.logger = logger;
             _itemDbContext = itemDbContext;
         }
 
@@ -27,6 +30,9 @@ namespace DomainModel.Daos
 
         public System.Collections.Generic.IEnumerable<Item> All()
         {
+            string sql = "select * from item";
+            this.logger.LogCritical(sql);
+            dynamic exObj = connection.Query(sql);
             throw new NotImplementedException();
         }
 

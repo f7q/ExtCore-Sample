@@ -12,7 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyStandard.Library" Version="1.0.0-alpha1" />
+    <PackageReference Include="MyStandard.Library" Version="1.0.0-alpha2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.3.1" />
   </ItemGroup>
 
 </Project>
